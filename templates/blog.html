@@ -1,0 +1,46 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Blog Page
+{% endblock title %}
+
+{% block body %}
+<!-- ======= Services Section ======= -->
+<section id="services" class="services">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Samundra's Blog</h2>
+        <p>Dive into a captivating world of inspiration, knowledge, and discovery as we embark on a journey through an eclectic array of topics.<br><br>
+
+        At Samundra's Blog, we strive to be your go-to destination for engaging content that leaves you informed, enlightened, and entertained. We're passionate about sharing our insights on health and wellness, helping you lead a more balanced and fulfilling life. <Br><br>
+
+        With a warm and friendly approach, Samundra's Blog is not just a platform for information, but a community where ideas are exchanged, opinions are valued, and creativity knows no bounds. We believe in fostering a welcoming space where everyone can find something of interest.<br><br>
+        
+        Thank you for being a part of this journey with us. Let's embark on this adventure together, where curiosity knows no limits, and knowledge awaits at every turn.<br><br>
+            
+        Welcome to Samundra's Blog – Where insights meet inspiration!</p>
+      </div>
+
+      <div class="row">
+        {% for post in posts reversed %}
+        <div class="row  icon-box shadow p-5 mb-4" data-aos="fade-up">
+          <div class=" col-lg-4">
+            <div class=""><img src="{{post.img.url}}" width="400" height='240'></div>
+          </div>
+          <div class="col-lg-8">
+            <h3 class="title"><a href="">{{post.title}}</a></h3>
+            <p class="description">{{post.description}}</p>
+            <p class="description">Posted by: <b>{{post.author}}</b></p>
+            <p class="description">Posted on: <b>{{post.timestamp}}</b></p>
+          </div>
+          
+          
+        </div>
+        {% endfor %}
+        
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+{% endblock body %}

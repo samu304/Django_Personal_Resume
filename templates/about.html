@@ -1,0 +1,107 @@
+
+
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} About Samundra {% endblock title %}
+
+{% block body %}
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>About Me</h2>
+        <div class="row">
+          <div class="col-md-7">
+            <p>
+              My name is <b>Samundra</b>. I'm a Full Stack Developer, passionate about creating innovative and efficient solutions. With skills, techniques and a creative mind, I am always looking for new challenges and opportunities to improve my skills and help turn ideas into reality.<br><br>
+    
+              My development knowledge covers both front-end and back-end, allowing me to create complete and cohesive solutions for the most diverse projects. On the front-end, I master technologies such as HTML, CSS, and JavaScript, in addition to Bootstrap and Tailwind.<br><br>
+              
+              On the back-end, I have experience in some languages, such as Python and C language, as well an expertise knowledge in Django Framework. I alo have some basic knowledge and can work with relational databases such as MySQL and SQlite.<br><br>
+              
+              <p>If you are looking for a motivated, dedicated and highly qualified Full Stack Developer to help drive your project or business forward, please do not hhesitate to contact me. I look forward to collaborating with you and creating exceptional solutions together!<br><br>
+              
+            </p>
+          </div>
+          <div class="col-md-5">
+            <div><img src="{% static 'assets/img/coding.jpg' %}" alt="" height="320px" width="480px"></div>
+          </div>
+        </div>
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right">
+          <img src=" {% static 'assets/img/profile pic.jpg' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <h3>Python Django Developer.</h3>
+          {% for i in about %}
+          <p class="fst-italic">{{i.title}}</p>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Full Name:</strong> <span>{{i.full_name}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>D.O.B :</strong> <span>{{i.dob}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+977 {{i.phone}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Address:</strong> <span>{{i.address}}</span></li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{i.age}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{i.degree}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{i.email}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>{{i.freelance}}</span></li>
+              </ul>
+            </div>
+          </div>
+          {% endfor %}
+          <p>
+            What sets me apart as a new Django developer is my dedication to continuous learning and growth. I keep myself updated with the latest industry trends and emerging technologies to ensure my solutions are both cutting-edge and in line with best practices. I am excited to collaborate with teams and clients to bring their ideas to life, providing efficient and reliable web applications tailored to their unique needs. Let's build extraordinary web experiences together!
+          </p>
+        </div>
+      </div>
+
+    </div>
+</section><!-- End About Section -->
+
+<!-- ======= Skills Section ======= -->
+<section id="skills" class="skills section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Skills</h2>
+      <p>Skillful and adaptable professional with a diverse range of talents to excel in various roles. Equipped with a strong blend of technical expertise, interpersonal abilities, and problem-solving acumen. Demonstrated proficiency in below mentioned fields. Committed to delivering exceptional results and contributing to team success. Eager to leverage these skills and contribute to the growth and success of my cliens.</p>
+    </div>
+
+    <div class="row skills-content">
+      
+      {% for i in skills %}
+      <div class="col-lg-10 " data-aos="fade-up">
+        <div class="shadow p-3 my-4">
+          <div class="progress ">
+            <h5 class="skill">{{i.fields}}<i class="val">{{i.level}}%</i></h5>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{i.level}}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            
+          </div>
+          <p>{{i.desc}}</p>
+        </div>
+      </div>
+
+      <div class="col-lg-2" data-aos="fade-up">
+        <div class="shadow p-3 my-4">
+          <img src=" {{ i.image.urls}}" alt="logos" style="height: 100px; width: 100px;">
+        </div>
+      </div> 
+      {% endfor %}
+    </div>
+
+  </div>
+</section><!-- End Skills Section -->
+
+{% endblock body %}

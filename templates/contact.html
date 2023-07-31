@@ -1,0 +1,88 @@
+{% extends 'basic.html' %}
+
+{% block title %} Contact Samundra {% endblock title %}
+
+{% block body %}
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Get in Touch: Contact Me</h2>
+        <p>
+        Welcome to the Contact Me page! I'm thrilled that you're here and interested in connecting with me. Whether you have questions, feedback, collaboration opportunities, or just want to say hello, this is the place to do it!<br><br>
+        I value open communication and believe in the power of building meaningful connections, so please don't hesitate to reach out. I am eager to hear from you and will do my best to respond as promptly as possible.<br><br>
+        Your thoughts and opinions are essential to me, and I'm excited to engage with my readers, fellow enthusiasts, and potential collaborators. So, let's get the conversation started! Fill out the contact form below, and I'll be in touch soon.<br><br>
+        Thank you for visiting my website, and I look forward to hearing from you!<br><br>
+
+        </p>
+      </div>
+
+      <div class="row" data-aos="fade-in">
+
+        <div class="col-lg-6 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <p>Milan Chowk, Bharatpur-12, Chitwan, Nepal</p>
+            </div>
+
+            <div class="email">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>aaerik534@gmail.com, aaerikkhanal3@gmail.com</p>
+            </div>
+
+            <div class="phone">
+              <i class="bi bi-phone"></i>
+              <h4>Call:</h4>
+              <p>+977 9845988304</p>
+            </div>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1050.5079959913662!2d84.44240547437768!3d27.671752640496173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994e59366f398a5%3A0x6e9c3d5b027a7eaf!2sHaat%20Bazar!5e0!3m2!1sen!2snp!4v1690422704334!5m2!1sen!2snp" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6  d-flex align-items-stretch rounded-2 shadow ">
+            
+            <form action="{% url 'contact_page' %}" method="post" role="form" style="width: 100%;" class="m-3">
+            {% csrf_token %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}} alert-dissmissible fade show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            <div class="row my-4">
+              <div class="form-group col-md-6">
+                <label for="name">Your Name</label>
+                <input type="text" name="name" class="form-control" id="name" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email">Your Email</label>
+                <input type="email" class="form-control" value="{{user.email}}" name="email" id="email" required>
+              </div>
+            </div>
+            <div class="form-group my-3">
+              <label for="phone">Phone</label>
+              <input type="number" class="form-control" name="phone" id="phone" required>
+            </div>
+            <div class="form-group my-3">
+              <label for="message">Message</label>
+              <textarea class="form-control" name="message" rows="10" id="message" required></textarea>
+            </div>
+            
+            <div class="form-group text-center d-grid my-3">
+                <button type="submit" class="btn btn-dark">Send Message</button>
+            </div>
+            </form>
+
+        </div>
+
+      </div>
+
+    </div>
+</section><!-- End Contact Section -->
+{% endblock body %}
